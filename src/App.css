@@ -5,6 +5,7 @@ html{
 :root{
   --black:#111517;
   --white:white;
+  --background:#fafafa;
 }
 body {
   font-family: 'Nunito Sans', sans-serif;
