@@ -4,7 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 const initialState = {
-  countryList:[]
+  countryList:[],
+  countriesByRegion:[],
+  countryListByName:[],
+  filterByRegion:''
 }
 
 const reducer = (state, action) =>{
@@ -17,6 +20,28 @@ const reducer = (state, action) =>{
         countryList: action.payload
       }
     }
+    case 'GET_COUNTRIES_BY_REGION':{
+      
+      const countriesByRegion = state.countryList.filter((country) =>{
+        return country.region === action.payload;
+      })
+      console.log('GET_COUNTRIES_BY_REGION', countriesByRegion)
+      return {
+        ...state,
+        countriesByRegion,
+        filterByRegion: action.payload
+      }
+    }
+
+    case 'SEARCH_COUNTRIES_BY_NAME':{
+      const countryListByName = state.countryList.filter((country)=>{
+        return country.name.toLowerCase().include(action.payload.toLowerCase());
+      })
+      return{
+        ...state,
+        countryListByName
+      }
+    }
     default:{
       return state;
     }     
@@ -26,7 +51,8 @@ const reducer = (state, action) =>{
 
 const store = createStore(
                 reducer,
-                initialState
+                initialState,
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
                 );
 
 function App() {
