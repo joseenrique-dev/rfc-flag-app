@@ -25,7 +25,6 @@ const reducer = (state, action) =>{
       const countriesByRegion = state.countryList.filter((country) =>{
         return country.region === action.payload;
       })
-      console.log('GET_COUNTRIES_BY_REGION', countriesByRegion)
       return {
         ...state,
         countriesByRegion,
@@ -35,8 +34,11 @@ const reducer = (state, action) =>{
 
     case 'SEARCH_COUNTRIES_BY_NAME':{
       const countryListByName = state.countryList.filter((country)=>{
-        return country.name.toLowerCase().include(action.payload.toLowerCase());
+        
+      return country.name.toLowerCase().includes(action.payload.toLowerCase());
       })
+      console.log('SEARCH_COUNTRIES_BY_NAME-->', countryListByName);
+
       return{
         ...state,
         countryListByName

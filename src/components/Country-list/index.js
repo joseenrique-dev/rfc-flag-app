@@ -15,11 +15,11 @@ const CountryList = (props) => {
 
   const countryList = useSelector((state)=> {
     //debugger;
-    if(state.filterByRegion != ''){
+    if(state.filterByRegion != '' && state.countryListByName.length === 0){
       return state.countriesByRegion; 
     }
-    if(state.countryListByName.lenght != 0){
-      return state.countriesByRegion; 
+    if(state.countryListByName.length > 0){
+      return state.countryListByName; 
     }
     return state.countryList;
   });
@@ -59,7 +59,7 @@ const CountryList = (props) => {
     const countryName = event.target.value;
     dispatch({
       type:'SEARCH_COUNTRIES_BY_NAME',
-      placeholder: countryName
+      payload: countryName
     })
   }
 
@@ -68,7 +68,7 @@ const CountryList = (props) => {
       <div className="region-block">
         
         <select onChange={onSelectRegion} >
-          <option selected hidden value="">Select Region:</option>
+          <option >Select Region:</option>
           <option value="Americas">Americas</option>
           <option value="Asia">Asia</option>
           <option value="Africa">Africa</option>
