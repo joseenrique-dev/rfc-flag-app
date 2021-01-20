@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Country from '../Country';
+import { useSelector } from 'react-redux';
 
 import './style.css';
 
@@ -9,15 +10,41 @@ import './style.css';
 **/
 
 const CountryList = (props) => {
+  const [countryList, setCountryList] = useState([]);
+  const state = useSelector(state=> state);
+  console.log('General State-->',state)
+
+  useEffect(() => {
+
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then((response)=>{ return response.json()})
+      .then(data=>{
+        console.log('data=>', data);
+        setCountryList(data);
+      })
+      .catch(err=>{
+        console.log('Error::', err);
+      })
+  }, [])
+
   return(
     <div className="cl-block">
-    <Country 
-        flag="https://cdn1.iconfinder.com/data/icons/flags-of-the-world-set-1-1/100/.svg-6-512.png"
-        name="Cuba"
-        population="11 000 000"
-        region="America Latina"
-        capital="La Habana"
-      />
+    {
+      countryList.map(({name,region, capital, population,flag})=>{
+        return (
+          <Country 
+            key={name}
+            flag={ flag }
+            name={ name }
+            population={ population }
+            region={ region }
+            capital={ capital }
+          />
+        )
+        
+      })
+    }
+    
     </div>
    )
   }

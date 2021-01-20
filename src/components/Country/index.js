@@ -16,7 +16,7 @@ const Country = (props) => {
     } = props;
   return(
     <div className="card-box">
-        <img src={ flag } alt=""/>
+        <img src={ flag } loading="lazy" alt=""/>
         <div className="details">
             <h2>{ name }</h2> 
             <p><strong>Population:</strong> { population }</p>
