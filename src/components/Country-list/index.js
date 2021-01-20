@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Country from '../Country';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './style.css';
 
@@ -10,17 +10,23 @@ import './style.css';
 **/
 
 const CountryList = (props) => {
-  const [countryList, setCountryList] = useState([]);
-  const state = useSelector(state=> state);
-  console.log('General State-->',state)
+  const dispatch = useDispatch();
+  const countryList = useSelector((state)=> state.countryList);
+  console.log('Country List-->',countryList);
 
   useEffect(() => {
 
     fetch("https://restcountries.eu/rest/v2/all")
-      .then((response)=>{ return response.json()})
+      .then((response)=>{ 
+        return response.json()
+      })
       .then(data=>{
         console.log('data=>', data);
-        setCountryList(data);
+        //setCountryList(data);
+        dispatch({
+          type:'SET_COUNTRY_LIST',
+          payload: data
+        });
       })
       .catch(err=>{
         console.log('Error::', err);

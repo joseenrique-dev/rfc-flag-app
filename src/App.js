@@ -7,9 +7,27 @@ const initialState = {
   countryList:[]
 }
 
-const reducer = (state, action) =>state;
+const reducer = (state, action) =>{
+  switch (action.type) {
+    case 'SET_COUNTRY_LIST':{
+      console.log('state--->', action)
 
-const store = createStore(reducer, initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+      return {
+        ...state,
+        countryList: action.payload
+      }
+    }
+    default:{
+      return state;
+    }     
+  }
+  //return state
+};
+
+const store = createStore(
+                reducer,
+                initialState
+                );
 
 function App() {
   return (
