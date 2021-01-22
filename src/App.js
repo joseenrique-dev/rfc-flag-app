@@ -44,6 +44,13 @@ const reducer = (state, action) =>{
         countryListByName
       }
     }
+
+    case 'SET_CLEAR_FILTER_NAME':{
+      return {
+        ...state,
+        countryListByName: state.countryList
+      }
+    }
     default:{
       return state;
     }     
