@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Country from '../Country';
 import { useSelector, useDispatch } from 'react-redux';
+import Search from '../Search';
 
 import './style.css';
 
@@ -11,7 +12,7 @@ import './style.css';
 
 const CountryList = (props) => {
   const dispatch = useDispatch();
-  const [ inputNameFilter, setInputNameFilter ] = useState('');
+  
   //const filterByRegion = useSelector((state)=> state.filterByRegion);
 
   const countryList = useSelector((state)=> {
@@ -55,24 +56,7 @@ const CountryList = (props) => {
 
   }
 
-  const filterByName = ( event ) =>{
-    console.log('Name:', event.target.value);
-    const countryName = event.target.value;
-    setInputNameFilter(countryName);
-
-    dispatch({
-      type:'SEARCH_COUNTRIES_BY_NAME',
-      payload: countryName
-    })
-  }
-
-  const onClearNameFilter = () =>{
-    setInputNameFilter('');
-    dispatch({
-      type: 'SET_CLEAR_FILTER_NAME',
-      payload: ''
-    });
-  }
+  
 
   return(
     <div className="cl-block">
@@ -87,15 +71,7 @@ const CountryList = (props) => {
         </select>
       </div>
       <br/>
-      <div className="searchByName-block">
-        <input type="text" placeholder="Search by name here !" value={ inputNameFilter } onChange={filterByName} />
-        {
-          inputNameFilter ?
-          <button onClick={onClearNameFilter}>Clear Filter</button> :
-          null
-        }
-
-      </div>
+      <Search />
     {
       countryList.map(({name,region, capital, population,flag})=>{
         return (

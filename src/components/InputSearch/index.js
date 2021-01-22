@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './style.css';
 /**
 * @author
 * @function InputSearch
@@ -7,9 +7,10 @@ import React from 'react'
 
 const InputSearch = ({ ...props }) => {
   return(
-    <div>
-        
-    </div>
+    <label className="input-box">
+      <i className="fas fa-search" />
+        <input type="text" {...props} />
+    </label>
    )
 
  }
