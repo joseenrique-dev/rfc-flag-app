@@ -5,6 +5,8 @@ import { createStore } from 'redux';
 import reducer from './redux/reducer';
 import ActionList from './components/ActionList';
 import Header from './components/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import CountryPage from './components/Country-page';
 
 const initialState = {
   countryList:[],
@@ -25,10 +27,16 @@ function App() {
   return (
     <div className="App">
       <Provider store={ store }>
-        <br/>
-        <Header/>
-        <ActionList />
-        <CountryList />
+        <Router>
+          <Header/>
+          <Switch>
+            <Route path={`/country/:name`} component={CountryPage} />
+            <Route path={'/'} >
+              <ActionList />
+              <CountryList />
+            </Route>
+          </Switch>
+        </Router>
       </Provider>
     </div>
   );

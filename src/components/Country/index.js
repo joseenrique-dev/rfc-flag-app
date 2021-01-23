@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import './style.css';
 
 /**
@@ -14,8 +15,12 @@ const Country = (props) => {
         region,
         capital
     } = props;
+    const history = useHistory();
+    const handleGoToCountry = () =>{
+        history.push(`/country/${name}`);
+    }
   return(
-    <div className="card-box">
+    <div className="card-box" onClick={handleGoToCountry}>
         <img src={ flag } loading="lazy" alt=""/>
         <div className="details">
             <h2>{ name }</h2> 
