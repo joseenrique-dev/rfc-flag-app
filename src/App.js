@@ -3,6 +3,7 @@ import CountryList from "./components/Country-list";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './redux/reducer';
+import ActionList from './components/ActionList';
 
 const initialState = {
   countryList:[],
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <i className="fas fa-moon" />
       <Provider store={ store }>
+        <ActionList />
         <CountryList />
       </Provider>
     </div>

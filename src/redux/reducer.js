@@ -21,7 +21,13 @@ const reducer = (state, action) =>{
       }
   
       case 'SEARCH_COUNTRIES_BY_NAME':{
-        const countryListByName = state.countryList.filter((country)=>{
+        let list;
+        if ( state.filterByRegion != '' ){
+          list = state.countriesByRegion
+        }else{
+          list = state.countryListByName;          
+        }
+        const countryListByName = list.filter((country)=>{
           
         return country.name.toLowerCase().includes(action.payload.toLowerCase());
         })
@@ -31,13 +37,7 @@ const reducer = (state, action) =>{
           ...state,
           countryListByName
         }
-      }
-  
-      case 'SET_CLEAR_FILTER_NAME':{
-        return {
-          ...state,
-          countryListByName: state.countryList
-        }
+      
       }
       default:{
         return state;

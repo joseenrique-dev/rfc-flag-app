@@ -27,7 +27,7 @@ const Search = (props) => {
       const onClearNameFilter = () =>{
         setInputNameFilter('');
         dispatch({
-          type: 'SET_CLEAR_FILTER_NAME',
+          type: 'SEARCH_COUNTRIES_BY_NAME',
           payload: ''
         });
       }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Country from '../Country';
 import { useSelector, useDispatch } from 'react-redux';
-import Search from '../Search';
+import ActionList from '../ActionList';
 
 import './style.css';
 
@@ -16,6 +16,7 @@ const CountryList = (props) => {
   //const filterByRegion = useSelector((state)=> state.filterByRegion);
 
   const countryList = useSelector((state)=> {
+    console.log('State-->', state)
     //debugger;
     if(state.filterByRegion != '' && state.countryListByName.length === 0){
       return state.countriesByRegion; 
@@ -47,31 +48,12 @@ const CountryList = (props) => {
       })
   }, [])
 
-  const onSelectRegion = (e) =>{
-    const region = e.target.value;
-    dispatch({
-      type:'GET_COUNTRIES_BY_REGION',
-      payload: region
-    })
-
-  }
+ 
 
   
 
   return(
     <div className="cl-block">
-      <div className="region-block">        
-        <select onChange={onSelectRegion} >
-          <option >Select Region:</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Africa">Africa</option>
-          <option value="Europa">Europa</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-      </div>
-      <br/>
-      <Search />
     {
       countryList.map(({name,region, capital, population,flag})=>{
         return (
