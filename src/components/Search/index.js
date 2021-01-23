@@ -37,7 +37,7 @@ const Search = (props) => {
         <InputSearch type="text" placeholder="Search by name here !" value={ inputNameFilter } onChange={filterByName} />
         {
           inputNameFilter ?
-          <button onClick={onClearNameFilter}>Clear Filter</button> :
+          <i className='fas fa-times close' onClick={onClearNameFilter}></i>:
           null
         }
 

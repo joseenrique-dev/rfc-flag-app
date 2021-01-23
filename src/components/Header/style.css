@@ -1,0 +1,27 @@
+.header-box{
+    background-color: var(--white);
+    margin-bottom: 1em;
+    box-shadow: 0 2px 4px 0 rgb(0,0,0,.06);
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    height: 80px; 
+    align-items: center;   
+    margin-top: -21px;
+}
+
+h1{
+    font-size: 14px;
+}
+
+.moon{
+    margin-right: 8px;
+    transform: rotate(-25deg);
+}
+
+.header-p{
+    font-size: 12px;
+    font-weight: bold;
+}

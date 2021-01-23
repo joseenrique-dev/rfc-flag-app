@@ -1,3 +1,4 @@
+//Nos quedamos en el 2-41-54
 const reducer = (state, action) =>{
     switch (action.type) {
       case 'SET_COUNTRY_LIST':{
@@ -25,7 +26,7 @@ const reducer = (state, action) =>{
         if ( state.filterByRegion != '' ){
           list = state.countriesByRegion
         }else{
-          list = state.countryListByName;          
+          list = state.countryList;          
         }
         const countryListByName = list.filter((country)=>{
           

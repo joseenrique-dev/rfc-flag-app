@@ -9,7 +9,7 @@ const InputSearch = ({ ...props }) => {
   return(
     <label className="input-box">
       <i className="fas fa-search" />
-        <input type="text" {...props} />
+      <input type="text" {...props} />
     </label>
    )
 
