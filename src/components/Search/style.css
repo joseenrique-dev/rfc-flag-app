@@ -1,5 +1,6 @@
 .searchByName-block{
     display: flex;
+    position: relative;
 }
 .close{
     position: absolute;

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Country from '../Country';
 import { useSelector, useDispatch } from 'react-redux';
 import ActionList from '../ActionList';
+import Wrapper from "../Wrapper";
 
 import './style.css';
 
@@ -53,24 +54,26 @@ const CountryList = (props) => {
   
 
   return(
-    <div className="cl-block">
-    {
-      countryList.map(({name,region, capital, population,flag})=>{
-        return (
-          <Country 
-            key={name}
-            flag={ flag }
-            name={ name }
-            population={ population }
-            region={ region }
-            capital={ capital }
-          />
-        )
-        
-      })
-    }
-    
-    </div>
+    <Wrapper>
+      <div className="cl-block">
+      {
+        countryList.map(({name,region, capital, population,flag})=>{
+          return (
+            <Country 
+              key={name}
+              flag={ flag }
+              name={ name }
+              population={ population }
+              region={ region }
+              capital={ capital }
+            />
+          )
+          
+        })
+      }
+      
+      </div>
+    </Wrapper>
    )
   }
 

@@ -3,3 +3,10 @@
     grid-template-columns: 1fr;
     grid-row-gap: 12px;
 }
+
+@media screen and (min-width: 768px){
+    .action-list-box{
+        display: grid;
+        grid-template-columns: 480px 1fr 200px;
+    }
+}
