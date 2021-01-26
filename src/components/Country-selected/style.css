@@ -1,0 +1,7 @@
+.languages::after{
+    content:',';
+}
+
+span{
+    margin-right: 10px;
+}

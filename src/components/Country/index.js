@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
+import slugify from 'slugify';
 import './style.css';
 
 /**
@@ -17,7 +18,7 @@ const Country = (props) => {
     } = props;
     const history = useHistory();
     const handleGoToCountry = () =>{
-        history.push(`/country/${name}`);
+        history.push(`/country/${slugify(name)}`);
     }
   return(
     <div className="card-box" onClick={handleGoToCountry}>

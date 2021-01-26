@@ -23,8 +23,8 @@ export default function Header({setDarkMode, darkMode}) {
                             <span className="moon">
                                 {
                                     darkMode ?
-                                    <i className="far fa-moon" /> :
-                                    <i className="fas fa-moon" />                    
+                                    <i className="fas fa-moon" /> :
+                                    <i className="far fa-moon" />                    
                                 }
                             </span>
                             Dark Mode
