@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Wrapper from '../Wrapper';
 import './style.css';
 
-export default function Header() {
+export default function Header({setDarkMode, darkMode}) {
     const handleClick = () =>{
+        setDarkMode(!darkMode);
 
     }
 
@@ -20,8 +21,11 @@ export default function Header() {
                     <div className="dark-mode">
                         <p onClick={handleClick} className="header-p">
                             <span className="moon">
-                            <i className="far fa-moon" />                   
-                            {/* <i className="fas fa-moon" /> */}
+                                {
+                                    darkMode ?
+                                    <i className="far fa-moon" /> :
+                                    <i className="fas fa-moon" />                    
+                                }
                             </span>
                             Dark Mode
                         </p>

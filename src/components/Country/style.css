@@ -26,6 +26,7 @@ img{
     background: var(--white);
     border-radius: 0 0 5px 5px;
     transition: 3s border;
+    background:var(--white);
 }
 .details:hover{
     border: thin solid var(--black);
