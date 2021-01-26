@@ -5,3 +5,28 @@
 span{
     margin-right: 10px;
 }
+
+img{
+    width: 100%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.grid{
+    display: grid;
+    grid-row-gap: 1em;
+    margin-bottom: 1em;
+}
+
+.border-box{
+    margin-top: 2em;
+}
+
+.border-item{
+    padding: .5em 2em;
+    border-radius:5px;
+    margin-right: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    display: inline-flex;
+    margin-bottom: 5px;
+}

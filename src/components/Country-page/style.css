@@ -1,0 +1,11 @@
+.back{
+    background-color: var(--white);
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    border-radius: 5px;
+    border: none;
+    padding: 0.3em 1.4em;
+    cursor: pointer;
+}
+i{
+    margin-right: 5px;
+}

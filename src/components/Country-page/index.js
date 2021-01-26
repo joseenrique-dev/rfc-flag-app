@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux';
 import CountrySelected from '../Country-selected';
 import Wrapper from '../Wrapper'
+import './style.css';
 
 export default function CountryPage({match, history}) {
     console.log('mmmm', match);
