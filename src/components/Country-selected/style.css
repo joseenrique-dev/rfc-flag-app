@@ -6,7 +6,7 @@ span{
     margin-right: 10px;
 }
 
-img{
+.img-country-selected{
     width: 100%;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -29,4 +29,16 @@ img{
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
     display: inline-flex;
     margin-bottom: 5px;
+    background: var(--white);
+}
+
+@media screen and (min-width: 1024px){
+    .country-selected-box{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 120px;
+    }
+    .grid{
+        grid-template-columns: 1fr 1fr;
+    }
 }

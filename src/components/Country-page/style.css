@@ -5,6 +5,7 @@
     border: none;
     padding: 0.3em 1.4em;
     cursor: pointer;
+    color:var(--black);
 }
 i{
     margin-right: 5px;
