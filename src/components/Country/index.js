@@ -14,11 +14,13 @@ const Country = (props) => {
         name,
         population,
         region,
-        capital
+        capital,
+        cioc,
+        alpha2Code
     } = props;
     const history = useHistory();
     const handleGoToCountry = () =>{
-        history.push(`/country/${slugify(name)}`);
+        history.push(`/country/${slugify(alpha2Code)}`);
     }
   return(
     <div className="card-box" onClick={handleGoToCountry}>

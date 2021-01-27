@@ -6,14 +6,14 @@ import './style.css';
 
 export default function CountryPage({match, history}) {
     console.log('mmmm', match);
-    const DBcountry = useSelector(state => state.countryList.find(item=>item.name === match.params.name))
+    const DBcountry = useSelector(state => state.countryList.find(item=>item.alpha2Code === match.params.name))
     const [country, setCountry] = useState(DBcountry)
     useEffect(() => {
         if( !country ){
-            fetch(`http://restcountries/rest/v2/name/${ match.params.name }`)
+            fetch(`http://restcountries.eu/rest/v2/alpha/${ match.params.name.toLowerCase() }`)
             .then(res =>res.json())
             .then(data=>{
-                setCountry(data[0]);
+                setCountry(data);
                 console.log('data', data)
             })
         }
@@ -27,7 +27,7 @@ export default function CountryPage({match, history}) {
         <div>
             <Wrapper>
             <button className="back" onClick={handleClick}><i className="fas fa-long-arrow-alt-left"></i> Back</button>
-            <CountrySelected {...country}/>
+            <CountrySelected {...country} />
             </Wrapper>
         </div>
     )

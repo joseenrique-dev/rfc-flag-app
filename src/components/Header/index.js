@@ -14,9 +14,8 @@ export default function Header({setDarkMode, darkMode}) {
             <Wrapper >
                 <div className="content">
                     <Link to="/">
-                        <p>
-                            <h1>Where in the World ?</h1>
-                        </p>
+                        <h1>Where in the World ?</h1>
+                        
                     </Link>
                     <div className="dark-mode">
                         <p onClick={handleClick} className="header-p">

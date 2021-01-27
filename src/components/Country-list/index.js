@@ -57,7 +57,7 @@ const CountryList = (props) => {
     <Wrapper>
       <div className="cl-block">
       {
-        countryList.map(({name,region, capital, population,flag})=>{
+        countryList.map(({name,region, capital, population,flag, cioc, alpha2Code})=>{
           return (
             <Country 
               key={name}
@@ -66,6 +66,8 @@ const CountryList = (props) => {
               population={ population }
               region={ region }
               capital={ capital }
+              cioc={ cioc }
+              alpha2Code={alpha2Code}
             />
           )
           

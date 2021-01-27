@@ -1,5 +1,4 @@
 import React from 'react';
-import Wrapper from '../Wrapper';
 import './style.css';
 
 export default function CountrySelected(
@@ -15,9 +14,9 @@ export default function CountrySelected(
         <div className="country-selected-box">            
             <img src={flag} alt="" className="img-country-selected"/>
             <div>
+                <h2>{name}</h2>
                 <div className="grid">
                     <div>
-                        <h2>{name}</h2>
                         <p><strong>Native Name:</strong> {nativeName}</p>
                         <p><strong>Population:</strong> {population}</p>
                         <p><strong>Region:</strong> {region}</p>
@@ -30,7 +29,7 @@ export default function CountrySelected(
                         <p><strong>Languages:</strong> {languages.map((item) => <span className="languages">{item.name}</span>)}</p>
                     </div>
                 </div>
-                <p><strong>Borders:</strong></p>
+                <p><strong>Border Countries:</strong></p>
                 <div className="border-box">
                     {borders.map(data=> <span className="border-item">{data} </span>)}
                 </div>

@@ -21,8 +21,8 @@ export const Region = (props) => {
 
   return(
     <div className="region-block">        
-        <select onChange={onSelectRegion} >
-            <option disabled selected>Select Region:</option>
+        <select onChange={onSelectRegion}  defaultValue={'selected'}>
+            <option disabled value="selected">Select Region:</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
             <option value="Africa">Africa</option>
